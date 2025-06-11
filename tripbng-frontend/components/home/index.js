@@ -1,0 +1,7 @@
+export * from './testimonial'
+export {default as HolidaySlider} from './holiday-slider'
+export {default as HotelSlider} from './hotel-slider'
+export {default as FlightDeals} from './flight-deals'
+export {default as Cta} from './cta'
+export {default as TravelIntro} from './travel-intro'
+export {default as TopFlights} from './top-flights'

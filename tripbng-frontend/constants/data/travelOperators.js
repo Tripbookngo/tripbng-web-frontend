@@ -1,0 +1,17 @@
+export const travelOperators = [
+  { name: "Airport Express", count: 35 },
+  { name: "Central Station", count: 40 },
+  { name: "North Gate", count: 12 },
+  { name: "West End", count: 28 },
+  { name: "East River", count: 15 },
+  { name: "South Terminal", count: 22 },
+  { name: "Main Plaza", count: 18 },
+  { name: "Ocean Breeze", count: 20 },
+  { name: "City Square", count: 30 },
+  { name: "Park Avenue", count: 25 },
+  { name: "Sunny Beach", count: 10 },
+  { name: "Greenwich Village", count: 23 },
+  { name: "Lakeside Drive", count: 17 },
+  { name: "Horizon Park", count: 19 },
+  { name: "City Center", count: 14 },
+];

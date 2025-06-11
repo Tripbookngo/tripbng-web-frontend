@@ -1,0 +1,17 @@
+export const cities = [
+    { name: "Anand Vihar", count: 25 },
+    { name: "Dwarka", count: 18 },
+    { name: "Saket", count: 15 },
+    { name: "Connaught Place", count: 30 },
+    { name: "Karol Bagh", count: 10 },
+    { name: "Rohini", count: 22 },
+    { name: "Janakpuri", count: 17 },
+    { name: "Pitampura", count: 19 },
+    { name: "Laxmi Nagar", count: 14 },
+    { name: "Vikaspuri", count: 8 },
+    { name: "Preet Vihar", count: 16 },
+    { name: "Shahdara", count: 13 },
+    { name: "Paschim Vihar", count: 21 },
+    { name: "Nehru Place", count: 9 },
+    { name: "Greater Kailash", count: 12 },
+  ];

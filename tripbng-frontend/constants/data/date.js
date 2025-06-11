@@ -1,0 +1,58 @@
+export const dates = [
+  {
+    id: 1,
+    day: "Sunday",
+    date: "01",
+    month: "January",
+    year: "24",
+  },
+  {
+    id: 2,
+    day: "Monday",
+    date: "02",
+    month: "January",
+    year: "24",
+  },
+  {
+    id: 3,
+    day: "Tuesday",
+    date: "03",
+    month: "January",
+    year: "24",
+  },
+  {
+    id: 4,
+    day: "Wednesday",
+    date: "04",
+    month: "January",
+    year: "24",
+  },
+  {
+    id: 5,
+    day: "Thurusday",
+    date: "05",
+    month: "January",
+    year: "24",
+  },
+  {
+    id: 6,
+    day: "Friday",
+    date: "06",
+    month: "January",
+    year: "24",
+  },
+  {
+    id: 7,
+    day: "Satday",
+    date: "07",
+    month: "January",
+    year: "24",
+  },
+  {
+    id: 8,
+    day: "Sunday",
+    date: "08",
+    month: "January",
+    year: "24",
+  },
+];

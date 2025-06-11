@@ -1,0 +1,465 @@
+[
+    {
+      "airline": "Air India",
+      "flightNumbers": "AI 123, AI 456",
+      "class": "Economy",
+      "seatsAvailable": 51,
+      "departureDate": "Wed, 28 Aug",
+      "departureTime": "07:00",
+      "departureAirport": "AMD",
+      "arrivalTime": "13:30",
+      "arrivalAirport": "HKT",
+      "duration": "7h 30m",
+      "stops": "Direct",
+      "price": 40000,
+      "originalPrice": 46000,
+      "facilities": ["Meal", "In-flight Entertainment"],
+      "fareOptions": [
+        {
+          "fareName": "Xpress Value",
+          "description": "Fare offered by airline",
+          "cabinBag": "7 Kgs / Adult",
+          "checkIn": "15 Kgs / Adult",
+          "cancellation": "Free date change allowed up to 2 hrs before departure",
+          "dateChange": "Date change fee starting ₹3,000",
+          "seat": "Chargeable",
+          "meal": "Included"
+        }
+      ]
+    },
+    {
+      "airline": "IndiGo",
+      "flightNumbers": "6E 172, 6E 250",
+      "class": "Economy",
+      "seatsAvailable": 30,
+      "departureDate": "Thu, 29 Aug",
+      "departureTime": "09:15",
+      "departureAirport": "AMD",
+      "arrivalTime": "16:45",
+      "arrivalAirport": "HKT",
+      "duration": "7h 30m",
+      "stops": "1 Stop",
+      "stopOver": "BKK",
+      "price": 35000,
+      "originalPrice": 40000,
+      "facilities": ["Free Wi-Fi"],
+      "fareOptions": [
+        {
+          "fareName": "Saver",
+          "description": "Lowest fare",
+          "cabinBag": "7 Kgs / Adult",
+          "checkIn": "15 Kgs / Adult",
+          "cancellation": "Cancellation fee starting ₹2,500",
+          "dateChange": "Date change fee starting ₹2,000",
+          "seat": "Chargeable",
+          "meal": "Chargeable"
+        }
+      ]
+    },
+    {
+      "airline": "SpiceJet",
+      "flightNumbers": "SG 456",
+      "class": "Economy",
+      "seatsAvailable": 20,
+      "departureDate": "Fri, 30 Aug",
+      "departureTime": "13:00",
+      "departureAirport": "AMD",
+      "arrivalTime": "20:30",
+      "arrivalAirport": "HKT",
+      "duration": "7h 00m",
+      "stops": "Direct",
+      "price": 38000,
+      "originalPrice": 42000,
+      "facilities": ["Extra Legroom"],
+      "fareOptions": [
+        {
+          "fareName": "Flexi",
+          "description": "Flexible fare",
+          "cabinBag": "7 Kgs / Adult",
+          "checkIn": "20 Kgs / Adult",
+          "cancellation": "Free up to 24h before departure",
+          "dateChange": "Free",
+          "seat": "Free",
+          "meal": "Included"
+        }
+      ]
+    },
+    {
+      "airline": "Vistara",
+      "flightNumbers": "UK 890",
+      "class": "Business",
+      "seatsAvailable": 5,
+      "departureDate": "Sat, 31 Aug",
+      "departureTime": "20:00",
+      "departureAirport": "AMD",
+      "arrivalTime": "03:30",
+      "arrivalAirport": "HKT",
+      "duration": "7h 30m",
+      "stops": "1 Stop",
+      "stopOver": "DEL",
+      "price": 55000,
+      "originalPrice": 60000,
+      "facilities": ["Lounge Access", "Priority Boarding"],
+      "fareOptions": [
+        {
+          "fareName": "Business Flex",
+          "description": "Flexible business fare",
+          "cabinBag": "12 Kgs / Adult",
+          "checkIn": "30 Kgs / Adult",
+          "cancellation": "Free cancellation",
+          "dateChange": "Free",
+          "seat": "Free",
+          "meal": "Included"
+        }
+      ]
+    },
+    {
+      "airline": "Thai Airways",
+      "flightNumbers": "TG 345",
+      "class": "Economy",
+      "seatsAvailable": 40,
+      "departureDate": "Sun, 25 Aug",
+      "departureTime": "06:30",
+      "departureAirport": "AMD",
+      "arrivalTime": "14:00",
+      "arrivalAirport": "HKT",
+      "duration": "7h 30m",
+      "stops": "Direct",
+      "price": 37000,
+      "originalPrice": 42000,
+      "facilities": ["Meal", "In-flight Entertainment"],
+      "fareOptions": [
+        {
+          "fareName": "Saver",
+          "description": "Low fare",
+          "cabinBag": "7 Kgs / Adult",
+          "checkIn": "20 Kgs / Adult",
+          "cancellation": "Chargeable",
+          "dateChange": "Chargeable",
+          "seat": "Chargeable",
+          "meal": "Included"
+        }
+      ]
+    }
+  ]
+  
+
+
+
+[  {
+  "Airline_Code": "SG",
+  "Block_Ticket_Allowed": false,
+  "Cached": false,
+  "Destination": "MAA",
+  "Fares": [
+      {
+          "FareDetails": [
+              {
+                  "AirportTax_Amount": 1384,
+                  "AirportTaxes": [
+                      {
+                          "Tax_Amount": 1384,
+                          "Tax_Code": "Tax",
+                          "Tax_Desc": "Tax"
+                      },
+                      {
+                          "Tax_Amount": 0,
+                          "Tax_Code": "YQ",
+                          "Tax_Desc": "YQ"
+                      }
+                  ],
+                  "Basic_Amount": 3200,
+                  "Currency_Code": "INR",
+                  "FareClasses": [
+                      {
+                          "Class_Code": "U",
+                          "Class_Desc": "Saver",
+                          "FareBasis": "USAV",
+                          "Privileges": null,
+                          "Segment_Id": 0
+                      }
+                  ],
+                  "Free_Baggage": {
+                      "Check_In_Baggage": "20 KG",
+                      "Hand_Baggage": "8 KG"
+                  },
+                  "GST": 14.22,
+                  "Gross_Commission": 93.22,
+                  "Net_Commission": 79,
+                  "PAX_Type": 0,
+                  "Promo_Discount": 0,
+                  "Service_Fee_Amount": 0,
+                  "TDS": 16,
+                  "Total_Amount": 4584,
+                  "Trade_Markup_Amount": 0,
+                  "YQ_Amount": 0
+              }
+          ],
+          "FareType": 0,
+          "Fare_Id": "RS4971164760233946512",
+          "Fare_Key": null,
+          "Food_onboard": "F",
+          "GSTMandatory": false,
+          "LastFewSeats": null,
+          "ProductClass": "RS",
+          "PromptMessage": null,
+          "Refundable": true,
+          "Seats_Available": "1",
+          "Warning": null
+      },
+      {
+          "FareDetails": [
+              {
+                  "AirportTax_Amount": 1398,
+                  "AirportTaxes": [
+                      {
+                          "Tax_Amount": 1398,
+                          "Tax_Code": "Tax",
+                          "Tax_Desc": "Tax"
+                      },
+                      {
+                          "Tax_Amount": 0,
+                          "Tax_Code": "YQ",
+                          "Tax_Desc": "YQ"
+                      }
+                  ],
+                  "Basic_Amount": 3470,
+                  "Currency_Code": "INR",
+                  "FareClasses": [
+                      {
+                          "Class_Code": "V",
+                          "Class_Desc": "DD",
+                          "FareBasis": "VCPN",
+                          "Privileges": null,
+                          "Segment_Id": 0
+                      }
+                  ],
+                  "Free_Baggage": {
+                      "Check_In_Baggage": "20 KG",
+                      "Hand_Baggage": "8 KG"
+                  },
+                  "GST": 15.32,
+                  "Gross_Commission": 100.42,
+                  "Net_Commission": 85.1,
+                  "PAX_Type": 0,
+                  "Promo_Discount": 0,
+                  "Service_Fee_Amount": 0,
+                  "TDS": 17,
+                  "Total_Amount": 4868,
+                  "Trade_Markup_Amount": 0,
+                  "YQ_Amount": 0
+              }
+          ],
+          "FareType": 0,
+          "Fare_Id": "DD5695812727065089978",
+          "Fare_Key": null,
+          "Food_onboard": "F",
+          "GSTMandatory": false,
+          "LastFewSeats": null,
+          "ProductClass": "DD",
+          "PromptMessage": null,
+          "Refundable": true,
+          "Seats_Available": "1",
+          "Warning": null
+      },
+      {
+          "FareDetails": [
+              {
+                  "AirportTax_Amount": 1398,
+                  "AirportTaxes": [
+                      {
+                          "Tax_Amount": 1398,
+                          "Tax_Code": "Tax",
+                          "Tax_Desc": "Tax"
+                      },
+                      {
+                          "Tax_Amount": 0,
+                          "Tax_Code": "YQ",
+                          "Tax_Desc": "YQ"
+                      }
+                  ],
+                  "Basic_Amount": 3470,
+                  "Currency_Code": "INR",
+                  "FareClasses": [
+                      {
+                          "Class_Code": "U",
+                          "Class_Desc": "SF",
+                          "FareBasis": "USPF",
+                          "Privileges": null,
+                          "Segment_Id": 0
+                      }
+                  ],
+                  "Free_Baggage": {
+                      "Check_In_Baggage": "20 KG",
+                      "Hand_Baggage": "8 KG"
+                  },
+                  "GST": 15.32,
+                  "Gross_Commission": 100.42,
+                  "Net_Commission": 85.1,
+                  "PAX_Type": 0,
+                  "Promo_Discount": 0,
+                  "Service_Fee_Amount": 0,
+                  "TDS": 17,
+                  "Total_Amount": 4868,
+                  "Trade_Markup_Amount": 0,
+                  "YQ_Amount": 0
+              }
+          ],
+          "FareType": 0,
+          "Fare_Id": "SF5373134778023251131",
+          "Fare_Key": null,
+          "Food_onboard": "F",
+          "GSTMandatory": false,
+          "LastFewSeats": null,
+          "ProductClass": "SF",
+          "PromptMessage": null,
+          "Refundable": true,
+          "Seats_Available": "1",
+          "Warning": null
+      },
+      {
+          "FareDetails": [
+              {
+                  "AirportTax_Amount": 1404,
+                  "AirportTaxes": [
+                      {
+                          "Tax_Amount": 1404,
+                          "Tax_Code": "Tax",
+                          "Tax_Desc": "Tax"
+                      },
+                      {
+                          "Tax_Amount": 0,
+                          "Tax_Code": "YQ",
+                          "Tax_Desc": "YQ"
+                      }
+                  ],
+                  "Basic_Amount": 3584,
+                  "Currency_Code": "INR",
+                  "FareClasses": [
+                      {
+                          "Class_Code": "U",
+                          "Class_Desc": "FIXED FARE",
+                          "FareBasis": "UCRP",
+                          "Privileges": null,
+                          "Segment_Id": 0
+                      }
+                  ],
+                  "Free_Baggage": {
+                      "Check_In_Baggage": "20 KG",
+                      "Hand_Baggage": "8 KG"
+                  },
+                  "GST": 15.93,
+                  "Gross_Commission": 104.45,
+                  "Net_Commission": 88.52,
+                  "PAX_Type": 0,
+                  "Promo_Discount": 0,
+                  "Service_Fee_Amount": 0,
+                  "TDS": 18,
+                  "Total_Amount": 4988,
+                  "Trade_Markup_Amount": 0,
+                  "YQ_Amount": 0
+              }
+          ],
+          "FareType": 0,
+          "Fare_Id": "CP4650482653550537313",
+          "Fare_Key": null,
+          "Food_onboard": "F",
+          "GSTMandatory": false,
+          "LastFewSeats": null,
+          "ProductClass": "CP",
+          "PromptMessage": null,
+          "Refundable": true,
+          "Seats_Available": "1",
+          "Warning": null
+      },
+      {
+          "FareDetails": [
+              {
+                  "AirportTax_Amount": 1436,
+                  "AirportTaxes": [
+                      {
+                          "Tax_Amount": 1436,
+                          "Tax_Code": "Tax",
+                          "Tax_Desc": "Tax"
+                      },
+                      {
+                          "Tax_Amount": 0,
+                          "Tax_Code": "YQ",
+                          "Tax_Desc": "YQ"
+                      }
+                  ],
+                  "Basic_Amount": 4226,
+                  "Currency_Code": "INR",
+                  "FareClasses": [
+                      {
+                          "Class_Code": "U",
+                          "Class_Desc": "SC",
+                          "FareBasis": "USMX",
+                          "Privileges": null,
+                          "Segment_Id": 0
+                      }
+                  ],
+                  "Free_Baggage": {
+                      "Check_In_Baggage": "20 KG",
+                      "Hand_Baggage": "8 KG"
+                  },
+                  "GST": 18.68,
+                  "Gross_Commission": 122.46,
+                  "Net_Commission": 103.78,
+                  "PAX_Type": 0,
+                  "Promo_Discount": 0,
+                  "Service_Fee_Amount": 0,
+                  "TDS": 21,
+                  "Total_Amount": 5662,
+                  "Trade_Markup_Amount": 0,
+                  "YQ_Amount": 0
+              }
+          ],
+          "FareType": 0,
+          "Fare_Id": "SC5570559544112769205",
+          "Fare_Key": null,
+          "Food_onboard": "F",
+          "GSTMandatory": false,
+          "LastFewSeats": null,
+          "ProductClass": "SC",
+          "PromptMessage": null,
+          "Refundable": true,
+          "Seats_Available": "1",
+          "Warning": null
+      }
+  ],
+  "Flight_Id": "5258388166504233742",
+  "Flight_Key": "FK5337020987535872629",
+  "Flight_Numbers": "6001-09/22/2024 10:40",
+  "GST_Entry_Allowed": true,
+  "HasMoreClass": false,
+  "InventoryType": 0,
+  "IsLCC": true,
+  "Origin": "BOM",
+  "Repriced": false,
+  "Segments": [
+      {
+          "Aircraft_Type": "737",
+          "Airline_Code": "SG",
+          "Airline_Name": "SpiceJet",
+          "Arrival_DateTime": "09/22/2024 12:35",
+          "Departure_DateTime": "09/22/2024 10:40",
+          "Destination": "MAA",
+          "Destination_City": "CHENNAI",
+          "Destination_Terminal": "1",
+          "Duration": "01:55",
+          "Flight_Number": "6001",
+          "Leg_Index": 0,
+          "OperatedBy": null,
+          "Origin": "BOM",
+          "Origin_City": "MUMBAI",
+          "Origin_Terminal": "1",
+          "Return_Flight": false,
+          "Segment_Id": 0,
+          "Stop_Over": null
+      }
+  ],
+  "TravelDate": "09/22/2024"
+},]
+
+

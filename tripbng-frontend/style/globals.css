@@ -1,0 +1,436 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "react-datepicker/dist/react-datepicker.css";
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0, 0%, 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0, 0%, 60%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --yellow: 33 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.skeleton-item1 {
+  background-color: #f0f0f0;
+  height: 100px;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.skeleton-item2 {
+  background-color: #f0f0f0;
+  height: 50px;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+.main-view{
+  height: 70vh;
+}
+
+/* Hero Image Styles */
+.hero-image {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero-image .overlay {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.1)
+  );
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .hero-image {
+    min-height: 600px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-image {
+    min-height: 700px;
+  }
+}
+.relative.z-10 {
+  position: relative;
+  z-index: 10;
+}
+
+.wrapper {
+  @apply bg-white p-4 rounded-xl;
+}
+
+.css-13cymwt-control {
+  border: none !important;
+  outline: none !important;
+  border-width: 0;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; 
+}
+
+
+
+.dropdown {
+  position: relative;
+  color: #333;
+  cursor: default;
+}
+
+.dropdown .arrow {
+  border-color: #999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-top: 0.3rem;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 0;
+}
+
+.dropdown .arrow.open {
+  border-color: transparent transparent #999;
+  border-width: 0 5px 5px;
+}
+
+.dropdown .selected-value input {
+  line-height: 1.5;
+  font-size: 1rem;
+  background-color: #fff;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: default;
+  outline: none;
+  padding: 8px 52px 8px 10px;
+  transition: all 200ms ease;
+  width: 100%;
+}
+
+.dropdown .options {
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1000;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dropdown .options.open {
+  display: block;
+}
+
+.dropdown .option {
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, 0.8);
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+}
+
+.dropdown .option.selected,
+.dropdown .option:hover {
+  background-color: #f2f9fc;
+  color: #333;
+}
+.custom-range-picker .ant-picker-input > input {
+  font-size: 1.3rem;
+  font-weight: 700;  
+}
+
+.custom-range-picker .ant-picker {
+  height: 50px;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s ease-in-out;
+}
+.ant-picker-input input {
+  font-size: 22px !important;
+  font-weight: bold;
+}
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ccc;
+  border-top-color: #ff6347;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* for filters */
+/* Mobile Filter Button */
+@media (max-width: 898px) {
+  .mobile-filter-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #FF8E00; /* Adjust the color as needed */
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-filter-button img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Mobile Filters Panel */
+@media (max-width: 898px) {
+  .mobile-filters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 999;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 20px; /* Add padding for better content spacing */
+  }
+
+  .mobile-filters.open {
+    transform: translateY(0);
+  }
+
+  .mobile-filters .filter-section {
+    margin-bottom: 20px; /* Add margin between filter sections */
+  }
+
+  .mobile-filters .filter-section h2 {
+    font-size: 1.25rem; /* Adjust heading size */
+    margin-bottom: 10px; /* Add margin below headings */
+  }
+
+  .mobile-filters .filter-section .filter-item {
+    margin-bottom: 15px; /* Add margin between filter items */
+  }
+
+  .mobile-filters .filter-section .filter-item label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; /* Add margin below labels */
+  }
+
+  .mobile-filters .filter-section .filter-item input[type="checkbox"] {
+    margin-right: 10px; /* Add margin between checkbox and label */
+  }
+
+  .mobile-filters .filter-section .filter-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* Add margin between image and label */
+  }
+
+  .mobile-filters .filter-section .slider-container {
+    margin-top: 20px; /* Add margin above slider */
+  }
+
+  .mobile-filters .filter-section .slider-container .MuiSlider-root {
+    margin: 20px 0; /* Add margin around slider */
+  }
+
+  .mobile-filters .filter-section .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Add margin above buttons */
+  }
+
+  .mobile-filters .filter-section .button-container button {
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 1rem; /* Adjust button font size */
+  }
+}
+.custom-btn {
+  background-color: white;
+  border-color: #d9d9d9;
+  color: black;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+.custom-btn.selected {
+  background-color: #FF8E00;
+  border-color: #FF8E00;
+  color: white;
+}
+
+.custom-btn:hover {
+  background-color: #ffe0b3 !important;
+  border-color: #FF8E00 !important;
+  color: black !important;
+}
+
+/* Add this rule to prevent hover effects on selected buttons */
+.custom-btn.selected:hover {
+  background-color: #FF8E00 !important;
+  border-color: #FF8E00 !important;
+  color: white !important;
+}
+
+/* Custom styles for completed steps */
+.custom-steps .ant-steps-item-finish .ant-steps-item-icon {
+  background-color: #FF8E00; /* Change this to your desired color */
+  border-color: #FF8E00; /* Change this to your desired color */
+  color: #fff; /* Change the color of the tick mark inside the icon */
+}
+
+.custom-steps .ant-steps-item-finish .ant-steps-item-title {
+  color: #FF8E00; /* Change this to your desired color */
+}
+
+/* Custom styles for the connecting lines between completed steps */
+.custom-steps .ant-steps-item-finish > .ant-steps-item-tail::after {
+  background-color: #FF8E00; /* Change this to your desired color */
+}
+
+.custom-steps .ant-steps-item-finish > .ant-steps-item-tail::after {
+  background-color: #FF8E00; /* Line color */
+}
+
+
+
+.custom-steps .ant-steps-item-process .ant-steps-item-icon {
+  background-color: #FF8E00;
+  border-color: #FF8E00;
+}
+
+.custom-steps .ant-steps-item-process .ant-steps-item-title {
+  color: #FF8E00;
+}
+
+.custom-steps .ant-steps-item-tail::after {
+  background-color: #FF8E00;
+}
+
+.custom-steps .ant-steps-item-process > .ant-steps-item-tail::after {
+  background-color: #FF8E00;
+}
+
+.custom-steps .ant-steps-item-finish > .ant-steps-item-tail::after {
+  background-color: #FF8E00;
+}
+
+.custom-select-dropdown .ant-select-item-option-active,
+.custom-select-dropdown .ant-select-item-option-selected {
+  background-color: #FF8E00 !important;
+  color: white !important;
+}
+
+.custom-select-dropdown .ant-select-item-option-active {
+  background-color: #ffe0b3 !important;
+  color: black !important;
+}
+
+
+.custom-textarea {
+  border: 1px solid #d9d9d9;
+  color: black;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.custom-textarea:focus {
+  border-color: #FF8E00;
+  box-shadow: 0 0 5px rgba(255, 142, 0, 0.5); /* Optional: Add glow effect on focus */
+}
+
+.custom-textarea::placeholder {
+  color: #d9d9d9; /* Placeholder color */
+}
+
+.custom-textarea:focus::placeholder {
+  color: #FF8E00; /* Change placeholder color when focused */
+}
