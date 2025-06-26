@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // const API_BASE_URL = "https://tripbng-backend-api-c6kw.onrender.com";
-const API_BASE_URL = "https://api.tripbng.com";
+// const API_BASE_URL = "https://api.tripbng.com";
+const API_BASE_URL = "https://tripbng-backend-api-njse.onrender.com";
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -25,10 +26,19 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error("API Error:", error?.response?.data || error.message);
+    const data = error?.response?.data;
+
+    if (typeof data === "string" && data.includes("<!DOCTYPE html>")) {
+      console.error("❌ API returned HTML error page (likely 503 Service Unavailable):");
+      console.error(data.slice(0, 300)); // Print only the start of HTML
+    } else {
+      console.error("❌ API Error:", data || error.message);
+    }
+
     return Promise.reject(error);
   }
 );
+
 
 export const apiService = {
   get: async (url, params = {}) => {
