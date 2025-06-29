@@ -952,7 +952,7 @@ export default function Page() {
   <div className="fixed w-[23%] max-w-[350px] h-[calc(100vh-6rem)] overflow-y-auto">
     <div className="bg-white rounded-md p-4 shadow-lg pb-52">
       <div className="flex justify-between items-center gap-2 mb-4">
-        <h2 className="text-lg font-bold">Filters</h2>
+      <h2 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#000] to-[#999999]">Filters</h2>
         <div className="flex gap-2">
           {isFilterOpen && (
             <button
@@ -966,14 +966,14 @@ export default function Page() {
             onClick={handleClearFilters}
             className="bg-gray-200 hover:bg-gray-300 rounded-lg py-2 px-4 transition-colors"
           >
-            <p className="text-sm text-gray-800">Clear All</p>
+            <p className="text-sm md:text-sm font-medium hidden md:block bg-gradient-to-r from-[#md:text-sm font-medium font-semibold hidden md:block bg-gradient-to-r from-[#046994]  to-[#47AAFF] bg-clip-text text-transparent] bg-clip-text text-transparent ">Clear all</p>
           </button>
         </div>
       </div>
 
       {/* Price Filter */}
       <div className="mb-6">
-        <h3 className="font-medium mb-2">Flight Price</h3>
+        <h3 className="font-medium mb-2 text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#000] via-[#999999] to-[#999999]" >Flight Price</h3>
         <Slider
           aria-label="Flight Price"
           step={1000}
@@ -983,7 +983,7 @@ export default function Page() {
           value={selectedPrice}
           onChange={handlePriceChange}
           sx={{
-            color: "#FF8E00",
+            color: "#47AAFF",
             height: 8,
             "& .MuiSlider-thumb": {
               backgroundColor: "#ffffff",
@@ -993,7 +993,7 @@ export default function Page() {
               "&:hover": { backgroundColor: "#ffffff" },
             },
             "& .MuiSlider-track": {
-              backgroundColor: "#FF8E00",
+              backgroundColor: "#47AAFF",
               height: 8,
             },
             "& .MuiSlider-rail": {
@@ -1014,7 +1014,7 @@ export default function Page() {
 
       {/* Onward Journey */}
       <div className="mb-6">
-        <h2 className="mb-3 font-bold inline-block border-b-4 border-yellow-500 w-fit">
+        <h2 className="mb-3 font-bold inline-block border-b-4 border-yellow-500 w-fit text-transparent bg-clip-text bg-gradient-to-r from-[#000] to-[#999999]">
           Onward Journey
         </h2>
         
@@ -1026,18 +1026,21 @@ export default function Page() {
           <div className="space-y-2">
             {["Non-Stop", "1-Stop"].map((stopType) => (
               <div key={stopType} className="flex items-center gap-3">
-                <input
-                  type="checkbox"
-                  id={`onward-${stopType.toLowerCase().replace(' ', '-')}`}
-                  className="h-4 w-4 text-orange-500 rounded focus:ring-orange-500 border-gray-300"
-                  onChange={(e) => handleOnwardStopChange(e, stopType)}
-                />
+                
                 <label 
                   htmlFor={`onward-${stopType.toLowerCase().replace(' ', '-')}`}
                   className="text-gray-600 font-medium"
                 >
                   {stopType}
                 </label>
+                <div className="flex items-center space-x-2">
+                  <input
+                  type="checkbox"
+                  id={`onward-${stopType.toLowerCase().replace(' ', '-')}`}
+                  className="h-5 w-5 border-2 border-gray-300 rounded-lg transition duration-200 ease-in-out hover:scale-105 cursor-pointer"
+                 onChange={(e) => handleOnwardStopChange(e, stopType)}
+                />
+              </div>
               </div>
             ))}
           </div>

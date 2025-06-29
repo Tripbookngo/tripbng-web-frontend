@@ -72,9 +72,7 @@ const navItems = [
   },
 ];
 
-const userString = localStorage.getItem("user");
-const user = JSON.parse(userString);
-console.log(user);
+
 
 export default function Navbar({ isFixed, showTabsInNav }) {
   const pathname = usePathname();
@@ -365,8 +363,8 @@ export default function Navbar({ isFixed, showTabsInNav }) {
             </div>
           ) : (
             <Link href="/login">
-              <button className="bg-gradient-to-r from-[#046994] via-[#57c785] to-[#046994] bg-clip-text text-transparent font-semibold p-2">
-                Login | Signup
+              <button className="bg-gradient-to-r from-orange-300 to-orange-500 text-white font-extrabold px-6 py-2 rounded-xl shadow-md">
+                LOGIN <span className="font-semibold">or</span> SIGNUP
               </button>
             </Link>
           )}

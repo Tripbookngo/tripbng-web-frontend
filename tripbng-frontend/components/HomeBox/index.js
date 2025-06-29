@@ -393,7 +393,9 @@ const HomeBox = () => {
               height={30} // Fixed height (adjust size as necessary)
               className="object-contain"
             />
-            <span className="text-xs sm:text-sm text-center">{item.title}</span>{" "}
+            <span className="text-xs sm:text-sm text-center text-[#999999]">
+             {item.title}
+            </span>
             {/* Text with fixed size */}
           </button>
         ))}
@@ -404,7 +406,7 @@ const HomeBox = () => {
           onClick={closeModal}
         >
           <div
-            className="bg-white w-full h-full"
+            className="bg-dark w-full h-full"
             onClick={(e) => e.stopPropagation()}
           >
             {currentModal === "flight" && (
@@ -561,14 +563,7 @@ const HomeBox = () => {
                       Ahmedabad
                     </p>
                   </div>
-                  <button
-                    className="w-full bg-yellow text-white font-medium py-3 rounded-lg"
-                    onClick={() => {
-                      handleRedirect();
-                    }}
-                  >
-                    Search
-                  </button>
+                  dreaming boy is a realist
                 </div>
               </div>
             )}
@@ -674,12 +669,12 @@ const HomeBox = () => {
                   </div>
 
                   <button
-                    className="w-full bg-yellow text-white font-medium py-3 rounded-lg"
+                    className="w-full bg-gradient-to-r from-orange-100 to-orange-500 text-white font-medium py-3 rounded-lg"
                     onClick={() => {
                       handleRedirect();
                     }}
                   >
-                    Search
+                    Searc
                   </button>
                 </div>
               </div>
