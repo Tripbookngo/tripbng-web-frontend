@@ -30,6 +30,7 @@ import LocationSelector, {
 import dayjs from "dayjs";
 import FlightTraveller from "@/components/flight/FlightTraveller";
 
+
 export default function Page() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -788,7 +789,7 @@ export default function Page() {
   };
   const AirlineDetails = ({ seatAvailability, AirlineCode, FlightNumber }) => (
     <div className="flex md:flex-col flex-row md:gap-0 gap-2">
-      <p className="md:text-sm text-gray-500">
+      <p className="md:text-sm text-gray-500 bg-gradient-to-r from-[#666666] to-[#666666] bg-clip-text text-transparent">
         {AirlineCode} {FlightNumber}
       </p>
       <p
@@ -796,7 +797,7 @@ export default function Page() {
       >
         Economy
       </p>
-      <p className="text-sm hidden md:block">
+      <p className="text-sm hidden md:block bg-gradient-to-r from-[#000000] to-[#666666] bg-clip-text text-transparent">
         {seatAvailability || 0} seat(s) available
       </p>
     </div>
@@ -806,8 +807,8 @@ export default function Page() {
   return (
     <DropdownProvider>
       <div className="flex flex-col gap-4">
-         <div className="bg-white shadow-sm py-6 hidden md:block fixed top-16 left-0 right-0 z-40">
-      <div className="container flex flex-wrap items-center gap-4">
+      <div className="bg-white shadow-sm py-6 hidden md:block fixed top-16 left-0 right-0 z-40">
+      <div className="container flex flex-wrap items-center gap-4 my-2">
        <p className="font-semibold">
          Special Fares <span className="text-gray-500">(Optional)</span>:
        </p>
@@ -829,7 +830,7 @@ export default function Page() {
         ))}
      </div>
       
-     <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mt-3 p-2 bg-white border border-gray-300 rounded-xl shadow-sm">
+     <div style={{height:'10px'}} className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 p-1 bg-white rounded-xl shadow-sm">
        <div className="border border-gray-300 py-2 px-4 rounded-tl-xl sm:rounded-l-xl flex flex-col gap-0.5 bg-white">
           <LocationSelector
            label="From"
@@ -925,13 +926,13 @@ export default function Page() {
          />
        </div>
        
-       <Button
-         className="py-2 px-4 border border-gray-300 rounded-xl flex items-center justify-center bg-gradient-to-r from-[#FFC47A] to-[#FF8E00] text-white text-lg font-semibold hover:shadow-md transition-all"
-         onClick={handleSearch}
-       >
+       <div className="border border-gray-300 py-2 px-4 flex flex-col gap-0.5 bg-white rounded-tr-xl sm:rounded-r-xl">
+       <Button className="my-1 rounded-xl flex items-center justify-center bg-gradient-to-r from-[#FFC47A] to-[#FF8E00] text-white text-lg font-semibold hover:shadow-md transition-all"
+         onClick={handleSearch}>
          <p>Search</p>
          <ChevronRight size={32} />
        </Button>
+       </div>
      </div>
     </div>
 
@@ -943,7 +944,7 @@ export default function Page() {
   <div className="fixed w-[23%] max-w-[350px] h-[calc(100vh-6rem)] overflow-y-auto">
     <div className="bg-white rounded-md p-4 shadow-lg pb-52">
       <div className="flex justify-between items-center gap-2 mb-4">
-      <h2 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#000] to-[#999999]">Filters</h2>
+      <h2 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#000] to-[#999999] flex flex-cols"><img src="/icons/strawberry.png" alt="Strawberry" className="w-4 h-5 pt-2 mr-2" />Filters</h2>
         <div className="flex gap-2">
           {isFilterOpen && (
             <button
@@ -975,21 +976,22 @@ export default function Page() {
           onChange={handlePriceChange}
           sx={{
             color: "#47AAFF",
-            height: 8,
+            height: 3.2,
             "& .MuiSlider-thumb": {
               backgroundColor: "#ffffff",
-              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)",
-              width: 20,
-              height: 20,
+              // boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)",
+              width: 25,
+              height: 25,
+              border:'3.2px solid #47AAFF',
               "&:hover": { backgroundColor: "#ffffff" },
             },
             "& .MuiSlider-track": {
               backgroundColor: "#47AAFF",
-              height: 8,
+              height: 3.2,
             },
             "& .MuiSlider-rail": {
               backgroundColor: "#DCDCDC",
-              height: 8,
+              height: 3.2,
             },
             "& .MuiSlider-valueLabel": {
               backgroundColor: "#1a68ab",
@@ -997,7 +999,7 @@ export default function Page() {
             },
           }}
         />
-        <div className="flex justify-between items-center mt-1 text-sm text-gray-600">
+        <div className="flex justify-between items-center mt-1 text-sm text-gray-600 ">
           <span>₹{minPrice}</span>
           <span>₹{selectedPrice}</span>
         </div>
@@ -1011,7 +1013,7 @@ export default function Page() {
         
         {/* Stops */}
         <div className="mb-4">
-          <h3 className="text-sm font-semibold mb-2">
+          <h3 className="text-sm font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#000] via-[#999999] to-[#999999]">
             Stops From {originName}
           </h3>
           <div className="space-y-2">
@@ -1039,7 +1041,7 @@ export default function Page() {
         
         {/* Departure Times */}
         <div className="mb-4">
-          <h3 className="text-sm font-semibold mb-2">
+          <h3 className="text-sm font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#000] via-[#999999] to-[#999999]">
             Departure From {originName}
           </h3>
           <div className="grid grid-cols-4 gap-2 text-center">
@@ -1079,7 +1081,7 @@ export default function Page() {
         
         {/* Arrival Times */}
         <div>
-          <h3 className="text-sm font-semibold mb-2">
+          <h3 className="text-sm font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#000] via-[#999999] to-[#999999]">
             Arrival at {destinationName}
           </h3>
           <div className="grid grid-cols-4 gap-2 text-center">
@@ -1594,9 +1596,9 @@ export default function Page() {
                               }}
                             >
                               <div className="flex flex-col">
-                                <div className="md:py-4 md:px-4 flex items-center md:justify-between py-3 px-3 ">
+                                <div className="md:py-4 md:px-4 flex items-center md:justify-between py-3 px-3 border-b border-dashed border-gray-400 border-b-2 ">
                                   <div className="flex md:flex-row flex-col items-center md:justify-between justify-start  w-full ">
-                                    <div className="flex items-center md:flex-col flex-row gap-5   md:px-0">
+                                    <div className="flex items-center md:flex-col flex-row gap-5  md:px-0">
                                       <div className="flex md:flex-row  items-center justify-start w-full gap-3  ">
                                         <img
                                           src={flight.AirlineImage}
@@ -1740,38 +1742,54 @@ export default function Page() {
                                   </div>
 
                                   <div className="text-right flex flex-col">
+                                    {/* Total Fare (Min) */}
                                     <p className="text-lg font-semibold">
                                       ₹
                                       {Math.min(
                                         ...flight.Amount.map((a) => {
-                                          if (
-                                            a.FareDetails &&
-                                            a.FareDetails.length > 0
-                                          ) {
-                                            return a.FareDetails[0]
-                                              .Total_Amount;
-                                          } else if (
-                                            a.fd &&
-                                            a.fd.ADULT &&
-                                            a.fd.ADULT.fC &&
-                                            a.fd.ADULT.fC.TF
-                                          ) {
+                                          if (a.FareDetails?.length > 0) {
+                                            return a.FareDetails[0].Total_Amount;
+                                  } else if (a.fd?.ADULT?.fC?.TF) {
                                             return a.fd.ADULT.fC.TF;
-                                          }
+                                         }
                                           return Infinity;
                                         })
                                       ).toLocaleString()}
                                     </p>
-                                    <button
-                                      className="bg-yellow text-white font-semibold py-2 rounded-lg border border-yellow w-32 ml-auto hidden md:block"
-                                      onClick={() => {
-                                        setSelectedOnward(flight);
-                                        handleOpenModal(flight);
-                                      }}
-                                    >
-                                      Book Now
-                                    </button>
-                                  </div>
+                                    
+                                    {/* Old Price (Max) */}
+                                    <p className="text-sm text-[#666666] line-through ">
+                                      ₹
+                                     {Math.max(
+                                       ...flight.Amount.map((a) => {
+                                          if (a.FareDetails?.length > 0) {
+                                            return a.FareDetails[0].Total_Amount;
+                                          } else if (a.fd?.ADULT?.fC?.TF) {
+                                            return a.fd.ADULT.fC.TF;
+                                          }
+                                          return 0;
+                                        })
+                                      ).toLocaleString()}
+                                    </p>
+
+                                     {/* Book Button */}
+                                     {/* <button
+                                        className="bg-yellow text-white font-semibold py-2 rounded-lg border border-yellow w-32 ml-auto hidden md:block"
+                                        onClick={() => {
+                                          setSelectedOnward(flight);
+                                         handleOpenModal(flight);
+                                       }}
+                                      >
+                                        Book Now
+                                      </button> */}
+                                    </div>
+                                    
+                                </div>
+                                {/* Facilities : Facility 1 Facility 2 */}
+                                <div className="flex gap-2 flex-wrap m-2 p-2">
+                                  Facilities : 
+                                  <span className="bg-gray-100 px-3 py-1 rounded-lg text-sm border-2"><input style={{backgroundColor:'gray',borderRadius:'16px'}} type='checkbox' name='facility' id='facility'/> Facility 1</span>
+                                  <span className="bg-gray-100 px-3 py-1 rounded-lg text-sm border-2"><input style={{backgroundColor:'gray',borderRadius:'16px'}} type='checkbox' name='facility' id='facility'/> Facility 2</span>
                                 </div>
                               </div>
                             </motion.div>
