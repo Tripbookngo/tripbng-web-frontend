@@ -806,144 +806,135 @@ export default function Page() {
   return (
     <DropdownProvider>
       <div className="flex flex-col gap-4">
-        <div stylw={{borderBottom:'1px dashed'}} className="bg-white shadow-sm py-6  hidden md:block  fixed top-16 left-0 right-0 z-40">
-          <div className="container flex flex-wrap items-center gap-4">
-            <p className="font-semibold">
-              Special Fares <span className="text-gray">(Optional)</span>:
-            </p>
-            {fareTypes.map(({ value, type, description }) => (
-              <button
-                key={value}
-                className={`p-2 rounded-lg flex items-center gap-2 cursor-pointer border ${
-                  selectedFareType === value
-                    ? "border-2 bg-blue text-white border-white"
-                    : "border-neutral-300"
-                }`}
-                onClick={() => toggleFareType(value)}
-              >
-                <div className="flex flex-col items-start">
-                  <p className="text-sm font-semibold">{type}</p>
-                </div>
-                {selectedFareType === value && <CircleX size={15} />}
-              </button>
-            ))}
-          </div>
-
-          <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mt-3 p-2 bg-white rounded-xl">
-            <div className="border py-2 px-4 rounded-tl-xl sm:rounded-l-xl flex flex-col gap-0.5 bg-gray/10">
-              <LocationSelector
-                label="From"
-                placeholder="Select origin"
-                value={originDropdown}
-                onChange={setOriginDropdown}
-                module="FlightList"
-              />
+         <div className="bg-white shadow-sm py-6 hidden md:block fixed top-16 left-0 right-0 z-40">
+      <div className="container flex flex-wrap items-center gap-4">
+       <p className="font-semibold">
+         Special Fares <span className="text-gray-500">(Optional)</span>:
+       </p>
+       {fareTypes.map(({ value, type, description }) => (
+          <button
+            key={value}
+           className={`px-3 py-2 rounded-lg flex items-center gap-2 border transition-all duration-200 ${
+             selectedFareType === value
+               ? "border-blue-500 bg-blue-600 text-white shadow"
+               : "border-gray-300 hover:border-gray-400 bg-white"
+            }`}
+            onClick={() => toggleFareType(value)}
+         >
+           <div className="flex flex-col items-start">
+              <p className="text-sm font-semibold">{type}</p>
             </div>
-
-            <div className="border py-2 px-4 flex flex-col gap-0.5 bg-gray/10">
-              <LocationSelector
-                label="To"
-                placeholder="Select origin"
-                value={destinationDropdown}
-                onChange={setDestinationDropdown}
-                module="FlightList"
-              />
-            </div>
-
-            <div
-              className="border py-2 px-4 flex flex-col gap-0.5 bg-gray/10"
-              onClick={() => setActivePicker("departure")}
-            >
-              <p className="text-xs text-gray-500 flex items-center gap-1">
-                <Calendar size={12} /> Departure
-              </p>
-              {selectedDate ? (
-                <p className="text-base font-semibold text-gray-900">
-                  {formattedTravelDateFull}
-                </p>
-              ) : (
-                <p className="text-base font-semibold text-gray-900">
-                  Select Departure Date
-                </p>
-              )}
-              {activePicker === "departure" && (
-                <DatePicker
-                  open={true}
-                  selected={selectedDate}
-                  onChange={handleSelectDepartureDate}
-                  onBlur={() => setActivePicker(null)}
-                  placeholder=""
-                  style={{
-                    position: "absolute",
-                    zIndex: 9999,
-                    width: "auto",
-                    opacity: 0,
-                    pointerEvents: "none",
-                  }}
-                  onSelect={(date) => {
-                    handleSelectDepartureDate(date);
-                    setActivePicker(null);
-                  }}
-                />
-              )}
-            </div>
-
-            {/* Return Picker */}
-            <div
-              className="border py-2 px-4 flex flex-col gap-0.5 bg-gray/10"
-              onClick={() => handleOpenPicker("return")}
-            >
-              <p className="text-xs text-gray-500 flex items-center gap-1">
-                <Calendar size={12} /> Return
-              </p>
-              <p className="text-base font-semibold text-gray-900">
-                {formattedReturnDateFull}
-              </p>
-              {activePicker === "return" && (
-                <DatePicker.RangePicker
-                  selected={returnDate}
-                  onChange={handleSelectReturnDates}
-                  dateFormat="dd/MM/yyyy"
-                  placeholderText={[
-                    "Select Return Start Date",
-                    "Select Return End Date",
-                  ]}
-                  className="w-full p-2 border rounded"
-                  disabledDate={disabledDate}
-                  open
-                  style={{
-                    position: "absolute",
-                    zIndex: 9999,
-                    width: "auto",
-                    opacity: 0,
-                    pointerEvents: "none",
-                  }}
-                  value={
-                    returnDates.length > 0
-                      ? [dayjs(returnDates[0]), dayjs(returnDates[1])]
-                      : null
-                  }
-                />
-              )}
-            </div>
-
-            <div className="border flex flex-col gap-0.5 bg-gray/10">
-              <FlightTraveller
-                travelerCounts={travelerCounts}
-                setTravelerCounts={setTravelerCounts}
-                module="FlightList"
-              />
-            </div>
-
-            <Button
-              className="border py-2 px-4 rounded-r-xl rounded-l-none flex items-center justify-center gap-2 bg-yellow text-white text-2xl font-semibold hover:bg-gray-200"
-              onClick={handleSearch}
-            >
-              <p>Search</p>
-              <ChevronRight size={40} />
-            </Button>
-          </div>
+           {selectedFareType === value && <CircleX size={15} />}
+         </button>
+        ))}
+     </div>
+      
+     <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 mt-3 p-2 bg-white border border-gray-300 rounded-xl shadow-sm">
+       <div className="border border-gray-300 py-2 px-4 rounded-tl-xl sm:rounded-l-xl flex flex-col gap-0.5 bg-white">
+          <LocationSelector
+           label="From"
+           placeholder="Select origin"
+           value={originDropdown}
+           onChange={setOriginDropdown}
+            module="FlightList"
+         />
         </div>
+      
+        <div className="border border-gray-300 py-2 px-4 flex flex-col gap-0.5 bg-white">
+          <LocationSelector
+            label="To"
+            placeholder="Select destination"
+            value={destinationDropdown}
+            onChange={setDestinationDropdown}
+            module="FlightList"
+          />
+        </div>
+      
+        <div
+          className="border border-gray-300 py-2 px-4 flex flex-col gap-0.5 bg-white cursor-pointer"
+          onClick={() => setActivePicker("departure")}
+        >
+          <p className="text-xs text-gray-500 flex items-center gap-1">
+            <Calendar size={12} /> Departure
+          </p>
+          <p className="text-base font-semibold text-gray-900">
+            {selectedDate ? formattedTravelDateFull : "Select Departure Date"}
+          </p>
+          {activePicker === "departure" && (
+            <DatePicker
+              open={true}
+              selected={selectedDate}
+              onChange={handleSelectDepartureDate}
+              onBlur={() => setActivePicker(null)}
+              placeholder=""
+              style={{
+                position: "absolute",
+                zIndex: 9999,
+                width: "auto",
+                opacity: 0,
+                pointerEvents: "none",
+              }}
+              onSelect={(date) => {
+                handleSelectDepartureDate(date);
+                setActivePicker(null);
+              }}
+            />
+          )}
+        </div>
+        
+        <div
+          className="border border-gray-300 py-2 px-4 flex flex-col gap-0.5 bg-white cursor-pointer"
+          onClick={() => handleOpenPicker("return")}
+        >
+          <p className="text-xs text-gray-500 flex items-center gap-1">
+            <Calendar size={12} /> Return
+          </p>
+         <p className="text-base font-semibold text-gray-900">
+           {formattedReturnDateFull}
+         </p>
+         {activePicker === "return" && (
+           <DatePicker.RangePicker
+             selected={returnDate}
+             onChange={handleSelectReturnDates}
+             dateFormat="dd/MM/yyyy"
+             placeholderText={["Select Return Start Date", "Select Return End Date"]}
+            className="w-full p-2 border border-gray-300 rounded"
+             disabledDate={disabledDate}
+             open
+             style={{
+               position: "absolute",
+               zIndex: 9999,
+               width: "auto",
+               opacity: 0,
+               pointerEvents: "none",
+             }}
+             value={
+               returnDates.length > 0
+                 ? [dayjs(returnDates[0]), dayjs(returnDates[1])]
+                 : null
+             }
+           />
+         )}
+       </div>
+       
+       <div className="border border-gray-300 py-2 px-4 flex flex-col gap-0.5 bg-white">
+         <FlightTraveller
+           travelerCounts={travelerCounts}
+           setTravelerCounts={setTravelerCounts}
+           module="FlightList"
+         />
+       </div>
+       
+       <Button
+         className="py-2 px-4 border border-gray-300 rounded-xl flex items-center justify-center bg-gradient-to-r from-[#FFC47A] to-[#FF8E00] text-white text-lg font-semibold hover:shadow-md transition-all"
+         onClick={handleSearch}
+       >
+         <p>Search</p>
+         <ChevronRight size={32} />
+       </Button>
+     </div>
+    </div>
+
         <div className="md:container md:px-4  md:pt-64 pb-12 ">
           <div className="flex flex-col md:flex-row w-full gap-2">
           <aside
