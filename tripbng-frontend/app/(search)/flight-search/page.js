@@ -1790,6 +1790,8 @@ export default function Page() {
                                   Facilities : 
                                   <span className="bg-gray-100 px-3 py-1 rounded-lg text-sm border-2"><input style={{backgroundColor:'gray',borderRadius:'16px'}} type='checkbox' name='facility' id='facility'/> Facility 1</span>
                                   <span className="bg-gray-100 px-3 py-1 rounded-lg text-sm border-2"><input style={{backgroundColor:'gray',borderRadius:'16px'}} type='checkbox' name='facility' id='facility'/> Facility 2</span>
+                                  <span style={{marginLeft:'400px'}} className="py-1 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#FFC47A] to-[#FF8E00]"><a href="#">Fight Details</a></span> 
+                                  <span className="py-1 font-semibold border border-2 rounded-lg p-1 text-transparent bg-clip-text bg-gradient-to-r from-[#FFC47A] to-[#FF8E00] border-[#FFC47A]"><a href="#">View price</a></span> 
                                 </div>
                               </div>
                             </motion.div>
