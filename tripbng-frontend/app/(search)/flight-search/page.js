@@ -30,7 +30,6 @@ import LocationSelector, {
 import dayjs from "dayjs";
 import FlightTraveller from "@/components/flight/FlightTraveller";
 
-
 export default function Page() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -491,7 +490,9 @@ export default function Page() {
     }
   }, []);
 
-  const generateDatePrices = () => {
+  const [datePrice, setDatePrice] = useState([]);
+
+  useEffect(() => {
     const today = new Date();
     let dates = [];
     for (let i = 0; i < 15; i++) {
@@ -502,10 +503,8 @@ export default function Page() {
         price: (10000 + i * 5000).toString(),
       });
     }
-    return dates;
-  };
-
-  const datePrice = generateDatePrices();
+    setDatePrice(dates);
+  }, []);
 
   const handleSelectDate = (date, price) => {
     const currentYear = new Date().getFullYear();
@@ -667,29 +666,43 @@ export default function Page() {
 
   const fetchFlights = async () => {
     setLoading(true);
+    // Ensure counts are always strings and not empty
+    const safeAdultCount = adultCount && adultCount !== '' ? adultCount : '1';
+    const safeChildCount = childCount && childCount !== '' ? childCount : '0';
+    const safeInfantCount = infantCount && infantCount !== '' ? infantCount : '0';
+    // Ensure codes are present
+    if (!originDropdown.code || !destinationDropdown.code || !apiTravelDate) {
+      toast.error("Please select origin, destination, and departure date.");
+      setLoading(false);
+      return;
+    }
+    // Build payload
+    const payload = {
+      Travel: {
+        FromCity: originDropdown.code,
+        toCity: destinationDropdown.code,
+        Cabine: "0",
+        Travel_Date: apiTravelDate,
+        // Only include Return_Date if present
+        ...(apiReturnDate ? { Return_Date: apiReturnDate } : {}),
+        Travel_Type: intl,
+      },
+      Traveler: {
+        Adult_Count: safeAdultCount,
+        Child_Count: safeChildCount,
+        Infant_Count: safeInfantCount,
+      },
+      // Only include isReturn if return date is present
+      ...(apiReturnDate ? { isReturn: true } : { isReturn: false }),
+      SrCitizen: fareType === "SENIORCITIZEN" ? true : false,
+      Student: fareType === "STUDENT" ? true : false,
+      Direct: [1, 2, 3, 4],
+    };
+    console.log("Flight search payload:", payload);
     try {
-      const response = await apiService.post("/flight/getFlights", {
-        Travel: {
-          FromCity: originDropdown.code,
-          toCity: destinationDropdown.code,
-          Cabine: "0",
-          Travel_Date: apiTravelDate,
-          Return_Date: apiReturnDate,
-          Travel_Type: intl,
-        },
-        Traveler: {
-          Adult_Count: adultCount,
-          Child_Count: childCount,
-          Infant_Count: infantCount,
-        },
-        isReturn: apiReturnDate === "" ? false : true,
-        SrCitizen: fareType === "SENIORCITIZEN" ? true : false,
-        Student: fareType === "STUDENT" ? true : false,
-        Direct: [1, 2, 3, 4],
-      });
+      const response = await apiService.post("/flight/getFlights", payload);
       if (response.status === 200) {
         setFlights(response?.data);
-
         const airlineDetails = extractAirlineDetails(response?.data);
         setAirlineDetails(airlineDetails);
       }

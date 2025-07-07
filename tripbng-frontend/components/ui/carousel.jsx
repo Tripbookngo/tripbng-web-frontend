@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import Image from "next/image";
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import useEmblaCarousel from "embla-carousel-react";
 
@@ -132,7 +133,7 @@ const CarouselContent = React.forwardRef(({ className, ...props }, ref) => {
         ref={ref}
         className={cn(
           "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          orientation === "horizontal" ? "pl-4" : "pt-4 flex-col",
           className
         )}
         {...props}
@@ -169,9 +170,9 @@ const CarouselPrevious = React.forwardRef(
       <button
         ref={ref}
         className={cn(
-          "absolute  h-8 w-8 rounded-full",
+          "absolute  h-8 w-8 rounded-full z-10",
           orientation === "horizontal"
-            ? "-left-12 top-1/2 -translate-y-1/2"
+            ? "-left-4 top-1/2 -translate-y-1/2"
             : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
           className
         )}
@@ -179,7 +180,9 @@ const CarouselPrevious = React.forwardRef(
         onClick={scrollPrev}
         {...props}
       >
-        <ArrowLeftIcon className="h-4 w-4 mx-5" />
+        <span className="flex items-center justify-center w-full h-full">
+          <Image src="/icons/arrowLeft.png" alt="Previous" width={32} height={32} />
+        </span>
         <span className="sr-only">Previous slide</span>
       </button>
     );
@@ -205,7 +208,9 @@ const CarouselNext = React.forwardRef(
         onClick={scrollNext}
         {...props}
       >
-        <ArrowRightIcon className="h-4 w-4" />
+        <span className="flex items-center justify-center w-full h-full">
+          <Image src="/icons/arrowRight.png" alt="Next" width={32} height={32} />
+        </span>
         <span className="sr-only">Next slide</span>
       </button>
     );

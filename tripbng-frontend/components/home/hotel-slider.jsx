@@ -46,9 +46,34 @@ export default function HotelSlider() {
 
   return (
     <Container>
-      <div className="flex flex-col md:flex-row items-center md:gap-10 px-4 md:px-10 py-6">
+      <div className="flex flex-col md:flex-row flex-wrap items-start md:gap-10 px-4 md:px-10 py-6">
+        {/* Left Sidebar */}
+        <div style={{boxShadow:'100px 0px 100px rgb(255, 255, 255)',zIndex:10}} className="flex flex-col md:w-1/3 lg:w-1/4 flex-shrink-0 mb-4 md:mb-0">
+          <div className="mb-4">
+            <h2 className="text-3xl md:text-5xl font-semibold mb-2 bg-gradient-to-r from-[#125C9C] to-[#47AAFF] bg-clip-text text-transparent">
+              Top Hotel Deals
+            </h2>
+            <p className="text-sm md:text-base font-light">
+              Book hotels worldwide at affordable rates with ease.
+            </p>
+          </div>
+          <div className="flex items-center gap-4 flex-wrap">
+            <Button className="text-sm md:text-base rounded-[24px]">Domestic</Button>
+            <Button className="text-sm md:text-base rounded-[24px] text=[#FF8E00]" color="outline_yellow">
+              International
+            </Button>
+          </div>
+          <Link
+            href={"/"}
+            className="flex items-center gap-3 text-yellow font-light mt-3"
+          >
+            Explore All
+            {Icons.arrowRight}
+          </Link>
+        </div>
+
         {/* Carousel with Box View */}
-        <div className="md:w-2/3 lg:w-3/4">
+        <div className="flex-1 min-w-0 md:w-2/3 lg:w-3/4">
           <Carousel
             opts={{ align: "start", slidesToShow: 4 }}
             className="w-full"
@@ -59,36 +84,27 @@ export default function HotelSlider() {
                   key={i}
                   className="md:basis-1/4 lg:basis-1/4 px-2"
                 >
-                  <div className="bg-white rounded-xl shadow hover:shadow-lg transition h-[320px]">
-                    {" "}
-                    {/* Adjust height as needed */}
-                    <div
-                      onClick={() => router.push("/hotel")}
-                      className="relative w-full overflow-hidden rounded-t-xl h-[250px]" // Adjust height as needed
-                    >
+                  <div
+                    className="bg-white rounded-xl shadow hover:shadow-lg transition cursor-pointer h-[220px] flex flex-col justify-between"
+                    onClick={() => router.push("/hotel")}
+                  >
+                    {/* Smaller image */}
+                    <div className="relative w-full overflow-hidden rounded-t-xl h-[180px]">
                       <Image
                         src={item.image}
                         alt={item.title}
                         className="w-full h-full object-cover rounded-t-xl"
-                        width={400}
-                        height={250} // Adjust height as needed
+                        width={320}
+                        height={180}
                       />
                     </div>
-                    <div className="flex justify-between items-center px-4 py-2 bg-[#115794] rounded-b-xl">
-                      <div>
-                        <h3 className="text-white text-base font-medium">
-                          {item.title}
-                        </h3>
-                        <p className="text-yellow text-sm font-semibold inline-block">
-                          ₹{item.price}
-                        </p>
-                      </div>
-                      <Button
-                        className="bg-yellow text-white text-sm px-4 py-1 hover:bg-yellow-600"
-                        onClick={() => router.push("/hotel")}
-                      >
-                        Book Now
-                      </Button>
+                    <div className="px-4 py-2 bg-[#115794] rounded-b-xl">
+                      <h3 className="text-white text-base font-bold">
+                        {item.title}
+                      </h3>
+                      <p className="text-yellow text-sm font-semibold inline-block">
+                        INR {item.price} Onward
+                      </p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -101,31 +117,6 @@ export default function HotelSlider() {
               <CarouselNext className="h-4 w-4  mr-7" />
             </div>
           </Carousel>
-        </div>
-
-        {/* Left Sidebar */}
-        <div className="flex flex-col md:w-1/3 lg:w-1/4">
-          <div className="mb-4">
-            <h2 className="text-3xl md:text-5xl font-semibold mb-2 text-[#125a9b]">
-              Top Hotel Deals
-            </h2>
-            <p className="text-sm md:text-base font-light">
-              Book hotels worldwide at affordable rates with ease.
-            </p>
-          </div>
-          <div className="flex items-center gap-4">
-            <Button className="text-sm md:text-base">Domestic</Button>
-            <Button className="text-sm md:text-base" color="outline_yellow">
-              International
-            </Button>
-          </div>
-          <Link
-            href={"/"}
-            className="flex items-center gap-3 text-yellow font-light mt-3"
-          >
-            Explore All
-            {Icons.arrowRight}
-          </Link>
         </div>
       </div>
     </Container>

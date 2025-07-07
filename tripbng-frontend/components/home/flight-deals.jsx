@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "../ui";
 import Image from "next/image";
 import Button from "../ui/button";
@@ -54,16 +54,22 @@ const dealsData = [
 
 export default function FlightDeals() {
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <Container className="p-4 sm:p-6 md:p-8 mt-10">
-      <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+      <div className="flex flex-col md:flex-row flex-wrap items-start gap-6 md:gap-10">
         {/* Left Column */}
-        <div className="flex flex-col md:w-1/3 lg:w-1/4 pl-4 md:pl-6 lg:pl-8">
+        <div className="flex flex-col md:w-1/3 lg:w-1/4 flex-shrink-0 pl-4 md:pl-6 lg:pl-8 mb-4 md:mb-0">
           <div className="mb-4">
             <h2
-              className="text-3xl md:text-5xl font-semibold mb-2"
-              style={{ color: "#125a9b" }}
+              className="text-3xl md:text-5xl font-semibold mb-2 bg-gradient-to-r from-[#125C9C] to-[#47AAFF] bg-clip-text text-transparent"
             >
               Best Flight Deals
             </h2>
@@ -71,7 +77,7 @@ export default function FlightDeals() {
               Choose the most suitable flight option suggested for you.
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-wrap">
             <Button className="text-sm md:text-base" color="outline_yellow">
               Domestic
             </Button>
@@ -89,13 +95,13 @@ export default function FlightDeals() {
         {/* Right Column - Deals in Box */}
         <div
           onClick={() => router.push("/")}
-          className="w-full border rounded-2xl p-6 shadow-md bg-white"
+          className="flex-1 min-w-0 border rounded-2xl p-4 sm:p-6 shadow-md bg-white"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
             {dealsData.map((deal, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 border rounded-xl p-4 flex-col w-[120px] sm:w-[140px] md:w-[160px] bg-neutral-50 hover:shadow transition"
+                className="flex items-center gap-4 border rounded-xl p-3 sm:p-4 flex-col min-w-0 w-full sm:w-[140px] md:w-[160px] bg-neutral-50 hover:shadow transition"
               >
                 <div className="flex-shrink-0">
                   <Image
