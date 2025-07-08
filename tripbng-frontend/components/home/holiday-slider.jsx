@@ -49,9 +49,9 @@ export default function HolidaySlider() {
         <div className="mb-4 md:mb-0 pl-4 md:pl-6">
           <h2
             className="text-3xl md:text-5xl font-semibold mb-2"
-            style={{ color: "#125a9b" }}
           >
-            Enjoy Top Holiday Packages
+            <span className="text-black">Enjoy </span>
+            <span className="bg-gradient-to-r from-[#125C9C] to-[#47AAFF] bg-clip-text text-transparent">Top Holiday Packages</span>
           </h2>
           <p className="text-sm md:text-base font-light">
             Discover the best holiday packages that fit your budget for your
@@ -59,72 +59,65 @@ export default function HolidaySlider() {
           </p>
         </div>
         <div className="flex items-center gap-4 md:mt-0 mt-3 pr-4">
-          <Button className="text-sm md:text-base">Domestic</Button>
-          <Button className="text-sm md:text-base bg-white border border-yellow text-yellow hover:bg-yellow-50">
-            International
-          </Button>
+          <Button className="text-sm md:text-base rounded-[24px]">Domestic</Button>
+          <Button className="text-sm md:text-base rounded-[24px] text-[#FF8E00] border border-[#FF8E00] bg-white">International</Button>
         </div>
       </div>
 
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
-        navigation={{
-          nextEl: ".swiper-button-next-custom",
-          prevEl: ".swiper-button-prev-custom",
-        }}
-        modules={[Navigation]}
-        breakpoints={{
-          640: { slidesPerView: 2, spaceBetween: 15 },
-          768: { slidesPerView: 3, spaceBetween: 20 },
-          1024: { slidesPerView: 4, spaceBetween: 25 },
-        }}
-      >
-        {SliderHolidayData.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-[320px]">
-              {" "}
-              {/* Adjusted card height */}
+      <div className="relative">
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={10}
+          navigation={{
+            nextEl: ".swiper-button-next-custom",
+            prevEl: ".swiper-button-prev-custom",
+          }}
+          modules={[Navigation]}
+          breakpoints={{
+            640: { slidesPerView: 2, spaceBetween: 15 },
+            768: { slidesPerView: 3, spaceBetween: 20 },
+            1024: { slidesPerView: 4, spaceBetween: 25 },
+          }}
+        >
+          {SliderHolidayData.map((slide, index) => (
+            <SwiperSlide key={index}>
               <div
+                className="bg-black rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden w-full max-w-xs mx-auto cursor-pointer flex flex-col"
+                style={{ minHeight: 250 }}
                 onClick={() => router.push("/holiday")}
-                className="relative w-full h-[180px] bg-neutral-100 cursor-pointer" // Adjusted image container height
               >
-                <Image
-                  src={slide.image}
-                  alt={slide.title}
-                  fill
-                  className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-              <div className="p-3 flex flex-col justify-between h-[140px]">
-                {" "}
-                {/* Adjusted padding */}
-                <div className="flex justify-between items-center mb-2 bg-blue-50 p-2 rounded-md">
-                  <h3 className="text-blue text-base font-semibold truncate">
-                    {slide.title}
-                  </h3>
-                  <p className="text-yellow text-base font-semibold whitespace-nowrap">
-                    ₹{slide.price}
-                  </p>
+                <div className="flex justify-center items-center p-2 flex-[0_0_70%]">
+                  <div className="relative w-[90%] h-full bg-neutral-900 rounded-xl overflow-hidden">
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      className="object-cover w-full h-full rounded-xl"
+                    />
+                  </div>
                 </div>
-                <Button
-                  className="mt-auto w-full bg-yellow text-white text-sm hover:bg-yellow-600"
-                  onClick={() => router.push("/holiday")}
-                >
-                  Book Now
-                </Button>
+                <div className="p-3 flex flex-col justify-between flex-1">
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-white text-base font-semibold truncate">
+                      {slide.title}
+                    </h3>
+                    <span className="text-yellow text-sm font-bold whitespace-nowrap">
+                      INR {slide.price}
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
-
-        <div className="swiper-button-prev-custom absolute top-[40%] left-0 z-10 cursor-pointer">
-          <ArrowLeft className="w-8 h-8 text-yellow" />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        {/* Navigation icons as siblings, not children */}
+        <div className="swiper-button-prev-custom absolute top-1/2 -translate-y-1/2 -left-6 z-20 cursor-pointer">
+          <Image src="/icons/arrowLeft.png" alt="Previous" width={16} height={16} />
         </div>
-        <div className="swiper-button-next-custom absolute top-[40%] right-0 z-10 cursor-pointer">
-          <ArrowRight className="w-8 h-8 text-yellow" />
+        <div className="swiper-button-next-custom absolute top-1/2 -translate-y-1/2 -right-6 z-20 cursor-pointer">
+          <Image src="/icons/arrowRight.png" alt="Next" width={16} height={16} />
         </div>
-      </Swiper>
+      </div>
 
       <Link
         href={"/"}

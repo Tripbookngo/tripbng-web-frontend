@@ -63,13 +63,6 @@ export default function HotelSlider() {
               International
             </Button>
           </div>
-          <Link
-            href={"/"}
-            className="flex items-center gap-3 text-yellow font-light mt-3"
-          >
-            Explore All
-            {Icons.arrowRight}
-          </Link>
         </div>
 
         {/* Carousel with Box View */}
@@ -117,6 +110,16 @@ export default function HotelSlider() {
               <CarouselNext className="h-4 w-4  mr-7" />
             </div>
           </Carousel>
+          {/* Add Explore All below carousel, aligned right */}
+          <div className="flex justify-end mt-4">
+            <Link
+              href={"/"}
+              className="flex items-center gap-3 text-yellow font-light mt-3"
+            >
+              Explore All
+              {Icons.arrowRight}
+            </Link>
+          </div>
         </div>
       </div>
     </Container>

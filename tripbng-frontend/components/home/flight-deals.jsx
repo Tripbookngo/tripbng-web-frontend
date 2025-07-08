@@ -77,11 +77,19 @@ export default function FlightDeals() {
               Choose the most suitable flight option suggested for you.
             </p>
           </div>
-          <div className="flex items-center gap-4 flex-wrap">
-            <Button className="text-sm md:text-base" color="outline_yellow">
+          <div className="flex flex-row items-center gap-4">
+            <Button 
+              className="text-sm md:text-base rounded-[24px] bg-[#FF8E00] text-white border border-[#FF8E00]"
+              style={{ borderRadius: 24 }}
+            >
               Domestic
             </Button>
-            <Button className="text-sm md:text-base">International</Button>
+            <Button 
+              className="text-sm md:text-base rounded-[24px] bg-transparent text-[#FF8E00] border border-[#FF8E00]"
+              style={{ borderRadius: 24 }}
+            >
+              International
+            </Button>
           </div>
           <Link
             href="/"
